@@ -1,0 +1,58 @@
+#container_cadastro{
+    width: 900px;
+    background-color: #cccccc;
+    margin: 0 auto;
+    margin-top:50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #4f4f4f;  
+}   
+h1{
+    text-align: center;
+    padding: 20px;
+}
+fieldset{
+    width: 800px;
+    margin: 0 auto;
+}
+legend{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    border: black solid 2px;
+}
+input{
+    padding: 0;
+}
+.input_text{
+    height: 30px;
+    width: 80%;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+}
+.input_text_num{
+    height: 30px;
+    width: 20%;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+}
+select{
+    height: 30px;
+    width: 20%;
+    font-size:18px;
+    border: none;
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+#submit_cadastro input[type=submit]{
+    margin: 0 auto;
+    background-color: #a9a9a9;
+    border: 2px solid #4f4f4f;
+    width: 25%;
+    margin-left: 350px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:#FFF;
+    background: linear-gradient(to bottom, #363636, #d3d3d3)
+}
