@@ -11,7 +11,7 @@
           <a href="listar_produto.php" class="item_menu">Produto</a>
         </li>
         <?php
-            if( strtolower($_SESSION["tipo"])=="a"){
+            if(isset($_SESSION["tipo"]) && strtolower($_SESSION["tipo"])=="a"){
         ?>
         <li>
           <a href="cadastro_usuario.php" class="item_menu">Cadastrar Usuário</a>
