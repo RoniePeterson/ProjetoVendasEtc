@@ -23,7 +23,7 @@
             }
         ?>    
         <li>
-          <a href="#" class="item_menu">Login</a>
+          <a href="/" class="item_menu">Login</a>
         </li>
       </ul>
     </nav>
