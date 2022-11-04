@@ -7,7 +7,7 @@ class Conexao {
     public static function getInstance(){
       if(!isset(self::$conexao)){
         try{  
-            self::$conexao =  new PDO('mysql:host=localhost;dbname=projeto_loja;charset=utf8',
+            self::$conexao =  new PDO('mysql:host=localhost;dbname=aulabd_pizzaria;charset=utf8',
                     'root','');
             self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $ex){

@@ -6,18 +6,19 @@ class UsuarioDAO {
     public function logar(UsuarioDTO  $usuarioDTO){
         try{
             $con = Conexao::getInstance();
-            $sql = "Select * from usuario where loginEmail =? AND senha=?";
+            $sql = "Select * from usuarios where EMAIL =? AND PASSWORD=?";
             $stmt = $con->prepare($sql);   
-            $stmt->bindValue(1, $usuarioDTO->getLoginEmail());
-            $stmt->bindValue(2, MD5($usuarioDTO->getSenha()));
+            $stmt->bindValue(1, $usuarioDTO->getEmail());
+            $stmt->bindValue(2, $usuarioDTO->getPassword());
             $stmt->execute();
             $usuarioFetch = $stmt->fetch(PDO::FETCH_ASSOC);
             
             if($usuarioFetch !=  NULL){
                 $usuario = new UsuarioDTO();
-                $usuario->setLoginEmail($usuarioFetch["idusuario"]);
-                $usuario->setNome($usuarioFetch["nome"]);
-                $usuario->setTipoUsuario($usuarioFetch["tipoUsuario"]);
+                $usuario->setEmail($usuarioFetch["ID"]);
+                $usuario->setNomeUsuario($usuarioFetch["NOME_USUARIO"]);
+                $usuario->setStatus($usuarioFetch["STATUS"]);
+                $usuario->setPerfil($usuarioFetch["PERFIL"]);
                 
                 return $usuario;
             }
