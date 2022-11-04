@@ -8,22 +8,22 @@ $usuarioDTO =  new UsuarioDTO();
 $usuarioDTO->setEmail($email);
 $usuarioDTO->setPassword($password);
 
-$usuarioDAO= new UsuarioDAO();
-$usuarioLogado = $usuarioDAO->logar($usuarioDTO);
+$usuarioDAO = new UsuarioDAO();
+$usuario = $usuarioDAO->logar($usuarioDTO);
 
-if ($usuarioLogado!=null ) {
-    session_start();
-    $_SESSION["usuario"] = array(
-      'email' => $usuarioLogado->getEmail(),
-      'status' => $usuarioLogado->getStatus(),
-      'perfil' => $usuarioLogado->getPerfil(),
-      'nome' => $usuarioLogado->getNomeUsuario()
-    );
-    
-    header("location:../../view/index.php");
+if ($usuario != null) {
+  if(strtoupper($usuario->getStatus()) == 'INATIVO') {
+    header("location: /?msg=Usuário não está ativo no sistema.");
+  }
+  session_start();
+  $_SESSION["usuario"] = array(
+    'email' => $usuario->getEmail(),
+    'status' => $usuario->getStatus(),
+    'perfil' => $usuario->getPerfil(),
+    'nome' => $usuario->getNomeUsuario()
+  );
+
+  header("location:../../view/index.php");
 } else {
-   header ( "location:../../view/login.php?msg=usuário e/ou senha inválidos" ); 
+  header("location: /?msg=Usuário e/ou senha inválidos");
 }
-
-
-
