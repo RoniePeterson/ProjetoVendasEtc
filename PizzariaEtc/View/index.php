@@ -1,8 +1,8 @@
 <?php
+session_start();
 require_once "layouts/header.php";
 require_once  "layouts/menu.php";
 
-session_start();
 
 if (!isset($_SESSION['usuario'])) {
   header('location: /');
