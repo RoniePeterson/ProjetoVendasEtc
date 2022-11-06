@@ -20,7 +20,8 @@ if ($usuario != null) {
     'email' => $usuario->getEmail(),
     'status' => $usuario->getStatus(),
     'perfil' => $usuario->getPerfil(),
-    'nome' => $usuario->getNomeUsuario()
+    'nome' => $usuario->getNomeUsuario(),
+    'id' => $usuario->getId()
   );
 
   header("location:../../view/index.php");

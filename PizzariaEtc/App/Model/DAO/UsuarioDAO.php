@@ -15,11 +15,11 @@ class UsuarioDAO {
             
             if($usuarioFetch !=  NULL){
                 $usuario = new UsuarioDTO();
-                $usuario->setEmail($usuarioFetch["ID"]);
+                $usuario->setEmail($usuarioFetch["EMAIL"]);
                 $usuario->setNomeUsuario($usuarioFetch["NOME_USUARIO"]);
                 $usuario->setStatus($usuarioFetch["STATUS"]);
                 $usuario->setPerfil($usuarioFetch["PERFIL"]);
-                
+                $usuario->setId($usuarioFetch["ID"]); 
                 return $usuario;
             }
             return null;

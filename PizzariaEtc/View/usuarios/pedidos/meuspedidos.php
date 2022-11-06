@@ -3,6 +3,11 @@ session_start();
 require_once  "../../../App/Control/verificaLogadoControl.php";
 require_once "../../layouts/header.php";
 require_once  "../../layouts/menu.php";
+require_once  "../../../App/Model/DAO/PedidosDAO.php";
+$pedidosDAO = new PedidosDAO();
+$pedidos = $pedidosDAO->listarPedidosByUsuario($usuarioLogado['id']);
+$qtd = 1;
+
 ?>
 <section class="container mt-3">
   <h1>Meus pedidos</h1>
@@ -20,14 +25,27 @@ require_once  "../../layouts/menu.php";
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>2022050001</td>
-          <td>2022-10-11</td>
-          <td>22.89</td>
-          <td>CONCLUÍDO</td>
-          <td style="width:5%;"><a href="#" class="btn btn-success btn-sm">Detalhes</a></td>
-        </tr>
+        <?php 
+        if($pedidos) {
+          foreach($pedidos as $pedido){ ?>
+          <tr>
+            <td><?=$qtd;?></td>
+            <td><?=$pedido['NUMERO'];?></td>
+            <td><?=$pedido['DATA'];?></td>
+            <td><?=$pedido['TOTAL'];?></td>
+            <td><?=$pedido['STATUS'];?></td>
+            <td style="width:5%;">
+              <a href="/View/usuarios/pedidos/detalhepedido.php?id=<?=$pedido['ID'];?>"  
+                class="btn btn-success btn-sm">Detalhes</a>
+            </td>
+          </tr>
+        <?php 
+          $qtd++; }
+          } else {?>
+          <tr>
+            <td colspan="6">Não existem pedidos cadastrados.</td>
+          </tr>    
+        <?php } ?>
       </tbody>
     </table>
   </section>

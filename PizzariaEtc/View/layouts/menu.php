@@ -37,7 +37,7 @@
           </li>
         <?php } ?>
         <li class="nav-item">
-          <a href="../../App/Control/logoutControl.php" class="nav-link text-white">Sair</a>
+          <a href="/App/Control/logoutControl.php" class="nav-link text-white">Sair</a>
         </li>
       </ul>
     </div>
