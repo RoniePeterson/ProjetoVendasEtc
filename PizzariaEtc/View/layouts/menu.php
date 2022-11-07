@@ -1,6 +1,5 @@
 <?php
-  $usuario = $_SESSION["usuario"];
-  $perfilUsuario = $usuario['perfil'];
+  $perfilUsuario = $usuarioLogado['perfil'];
 ?>
 <nav class="navbar navbar-expand-lg mb-3" style="background-color: #1e81b0;">
   <div class="container-fluid">

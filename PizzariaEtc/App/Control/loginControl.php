@@ -13,7 +13,7 @@ $usuario = $usuarioDAO->logar($usuarioDTO);
 
 if ($usuario != null) {
   if(strtoupper($usuario->getStatus()) == 'INATIVO') {
-    header("location: /?msg=Usuário não está ativo no sistema.");
+    header("location: ../view/login.php?msg=Usuário não está ativo no sistema.");
   }
   session_start();
   $_SESSION["usuario"] = array(
@@ -24,7 +24,7 @@ if ($usuario != null) {
     'id' => $usuario->getId()
   );
 
-  header("location:../../view/index.php");
+  header("location: ../../view/index.php");
 } else {
-  header("location: /?msg=Usuário e/ou senha inválidos");
+  header("location: ../../view/login.php?msg=Usuário e/ou senha inválidos");
 }
