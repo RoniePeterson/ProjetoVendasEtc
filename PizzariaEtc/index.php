@@ -21,14 +21,7 @@
     </div>
   </nav>
   <main class="container mt-5">
-    <section id="alert-message">
-      <?php if (isset($_GET["msg"])) { ?>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <?= $_GET["msg"]; ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php } ?>
-    </section>
+    <?php include_once "View/layouts/alertMessage.php"; ?>
 
     <section id="form">
       <form method="post" action="App/Control/loginControl.php">

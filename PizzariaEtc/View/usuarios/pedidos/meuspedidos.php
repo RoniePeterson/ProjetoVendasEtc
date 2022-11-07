@@ -12,6 +12,8 @@ $qtd = 1;
 <section class="container mt-3">
   <h1>Meus pedidos</h1>
 
+  <?php include_once "../../layouts/alertMessage.php"; ?>
+  
   <section class="mt-3">
     <table class="table table-striped table-hover">
       <thead>

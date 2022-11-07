@@ -52,6 +52,25 @@ class PedidosDAO
     }
   }
 
+  public function listarPedidosProdutosByIdPedidos($id)
+  {
+    try {
+      $con = Conexao::getInstance();
+      $sql = "SELECT pe.*, pp.*, pr.* FROM `pedidos_produtos` pp 
+              INNER JOIN `pedidos` pe ON pe.ID = pp.PEDIDO_ID
+              INNER JOIN `produtos` pr ON pr.ID = pp.PRODUTO_ID
+              WHERE pe.ID = ?;";
+      
+      $stmt = $con->prepare($sql);
+      $stmt->bindValue(1, $id);
+      $stmt->execute();
+      $pedido = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $pedido;
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+
   public function excluirPedidosById($idproduto)
   {
     try {
