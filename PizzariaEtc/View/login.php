@@ -24,6 +24,7 @@
           <div id="passwordHelp" class="form-text">Informe ssua senha</div>
         </div>
         <button type="submit" class="btn btn-success">Logar</button>
+        <a href="/index.php" class="btn btn-warning">Sair</a>
       </form>
     </section>
   </main>
