@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['usuario'])) {
-  header('location: ../view/login.php');
+  header('location: ../../login.php');
 }
 
 $usuarioLogado = [
