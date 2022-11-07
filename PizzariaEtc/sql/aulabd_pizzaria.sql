@@ -79,28 +79,12 @@ INSERT INTO `pedidos_produtos` (`ID`, `VALOR`, `QUANTIDADE`, `PRODUTO_ID`, `PEDI
 (1, '19.99', 1, 1, 1),
 (2, '19.99', 1, 3, 2),
 (3, '19.99', 1, 6, 2),
-(4, '5.00', 2, 22, 2),
+(4, '6.00', 2, 17, 2),
 (5, '19.99', 1, 1, 3),
 (6, '19.99', 1, 6, 3),
 (7, '19.99', 1, 1, 4),
 (8, '19.99', 1, 6, 4),
-(9, '19.99', 1, 10, 4),
-(10, '25.99', 1, 4, 8),
-(11, '22.33', 1, 15, 8),
-(12, '21.99', 1, 31, 8),
-(13, '14.99', 1, 21, 8),
-(14, '5.00', 1, 22, 8),
-(15, '9.99', 1, 30, 9),
-(16, '5.00', 1, 24, 9),
-(17, '33.99', 1, 34, 10),
-(18, '51.98', 2, 3, 5),
-(19, '25.99', 1, 9, 5),
-(20, '25.00', 5, 22, 5),
-(21, '21.99', 1, 31, 6),
-(22, '5.00', 1, 22, 6),
-(23, '33.99', 1, 34, 7),
-(24, '10.00', 2, 22, 7);
-
+(9, '19.99', 1, 10, 4);
 -- --------------------------------------------------------
 
 --
@@ -112,7 +96,8 @@ CREATE TABLE `produtos` (
   `NOME` varchar(50) NOT NULL,
   `VALOR` decimal(6,2) DEFAULT 0.00,
   `QUANTIDADE` int(11) DEFAULT 0,
-  `CATEGORIA` enum('REFRIGERANTE','AGUA','CERVEJA','SUCO','PIZZA','ESFIRRA') DEFAULT NULL
+  `CATEGORIA` enum('REFRIGERANTE','AGUA','CERVEJA','SUCO','PIZZA','ESFIRRA') DEFAULT NULL,
+  `IMAGEM` varchar(255) NOT NULL DEFAULT 'pizza-logo.png',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -121,39 +106,22 @@ CREATE TABLE `produtos` (
 
 INSERT INTO `produtos` (`ID`, `NOME`, `VALOR`, `QUANTIDADE`, `CATEGORIA`) VALUES
 (1, 'Pizza Calabreza', '19.99', 0, 'PIZZA'),
-(2, 'Pizza Calabreza/Portuguesa', '25.99', 0, 'PIZZA'),
-(3, 'Pizza Calabreza/Peperoni', '25.99', 0, 'PIZZA'),
-(4, 'Pizza Calabreza/Quatro Queijos', '25.99', 0, 'PIZZA'),
-(5, 'Pizza Calabreza/Banana', '25.99', 0, 'PIZZA'),
-(6, 'Pizza Portuguesa', '19.99', 0, 'PIZZA'),
-(7, 'Pizza Portuguesa/Peperoni', '25.99', 0, 'PIZZA'),
-(8, 'Pizza Portuguesa/Quatro Queijos', '25.99', 0, 'PIZZA'),
-(9, 'Pizza Portuguesa/Banana', '25.99', 0, 'PIZZA'),
-(10, 'Pizza Pepperoni', '19.99', 0, 'PIZZA'),
-(11, 'Pizza Peperroni/Quatro Queijos', '25.99', 0, 'PIZZA'),
-(12, 'Pizza Peperroni/Banana', '25.99', 0, 'PIZZA'),
-(13, 'Pizza Quatro Queijos', '20.33', 0, 'PIZZA'),
-(14, 'Pizza Quatro Queijos/Banana', '25.99', 0, 'PIZZA'),
-(15, 'Pizza Banana', '22.33', 0, 'PIZZA'),
-(16, 'Garrafa de água sem gás 300 ML', '3.00', 190, 'AGUA'),
-(17, 'Garrafa de água com gás 300 ML', '3.50', 88, 'AGUA'),
-(18, 'Suco de uva caixinha', '4.50', 100, 'SUCO'),
-(19, 'Suco de laranja caixinha', '4.50', 100, 'SUCO'),
-(20, 'Suco de maracujá caixinha', '4.50', 55, 'SUCO'),
-(21, 'Suco de laranja 1L', '14.99', 30, 'SUCO'),
-(22, 'Coca Cola Lata 350 ML', '5.00', 0, 'REFRIGERANTE'),
-(23, 'Guaraná Antártica Lata 350 ML', '5.00', 0, 'REFRIGERANTE'),
-(24, 'Pepsi Cola 350 ML', '5.00', 0, 'REFRIGERANTE'),
-(25, 'Soda Limonada 350 ML', '5.00', 0, 'REFRIGERANTE'),
-(26, 'Esfirras queijo', '1.99', 0, 'ESFIRRA'),
-(27, 'Esfirras carne', '1.99', 0, 'ESFIRRA'),
-(28, 'Esfirras doce', '1.99', 0, 'ESFIRRA'),
-(29, 'Pacote com 6 Esfirras salgadas', '9.99', 0, 'ESFIRRA'),
-(30, 'Pacote com 6 Esfirras salgadas e doces', '9.99', 0, 'ESFIRRA'),
-(31, 'Pacote com 12 Esfirras salgadas', '21.99', 0, 'ESFIRRA'),
-(32, 'Pacote com 12 Esfirras salgadas e doces', '21.99', 0, 'ESFIRRA'),
-(33, 'Pacote com 24 Esfirras salgadas', '33.99', 0, 'ESFIRRA'),
-(34, 'Pacote com 24 Esfirras salgadas e doces', '33.99', 0, 'ESFIRRA');
+(2, 'Pizza Portuguesa', '19.99', 0, 'PIZZA'),
+(3, 'Pizza Pepperoni', '19.99', 0, 'PIZZA'),
+(4, 'Pizza Banana', '22.33', 0, 'PIZZA'),
+(5, 'Garrafa de água sem gás 300 ML', '3.00', 190, 'AGUA'),
+(6, 'Garrafa de água com gás 300 ML', '3.50', 88, 'AGUA'),
+(7, 'Suco de uva caixinha', '4.50', 100, 'SUCO'),
+(8, 'Suco de laranja caixinha', '4.50', 100, 'SUCO'),
+(9, 'Suco de maça caixinha', '4.50', 55, 'SUCO'),
+(10, 'Suco de laranja 1L', '14.99', 30, 'SUCO'),
+(11, 'Coca Cola 350 ML', '5.00', 0, 'REFRIGERANTE'),
+(12, 'Guaraná Antártica Lata 350 ML', '5.00', 0, 'REFRIGERANTE'),
+(13, 'Pepsi Cola 350 ML', '5.00', 0, 'REFRIGERANTE'),
+(14, 'Soda Limonada 350 ML', '5.00', 0, 'REFRIGERANTE'),
+(15, 'Esfirras queijo', '1.99', 0, 'ESFIRRA'),
+(16, 'Esfirras carne', '1.99', 0, 'ESFIRRA'),
+(17, 'Esfirras doce', '1.99', 0, 'ESFIRRA');
 
 -- --------------------------------------------------------
 
@@ -176,8 +144,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `NOME_USUARIO`, `EMAIL`, `PASSWORD`, `STATUS`, `PERFIL`, `DATA_CADASTRO`) VALUES
-(1, 'ronie peterson', 'ronie.peterson@etcdf.com', 'b0d0f0fcccf4f45e6c4474bb3d58d128', 'ATIVO', 'ADMIN', '2022-05-05 18:10:42'),
-(2, 'rubens', 'rubens.aguiar@etcdf.com', '202cb962ac59075b964b07152d234b70', 'ATIVO', 'USUARIO', '2022-05-05 18:10:43'),
+(1, 'admin', 'admin@etcdf.com', 'b0d0f0fcccf4f45e6c4474bb3d58d128', 'ATIVO', 'ADMIN', '2022-05-05 18:10:42'),
+(2, 'ronie', 'ronie@etcdf.com', '202cb962ac59075b964b07152d234b70', 'ATIVO', 'USUARIO', '2022-05-05 18:10:43'),
 (3, 'renata', 'renata.pereira@etcdf.com', '7d9e8d029fd823aec5dc4d71716afa4d', 'INATIVO', 'USUARIO', '2022-05-05 18:10:43'),
 (4, 'maria santos', 'maria.santos@etcdf.com', 'e368d4df326079b608d2849ef3ef9a32', 'INATIVO', 'USUARIO', '2022-05-05 18:10:43'),
 (5, 'Margie', 'margie.simpsom@fox.com', '1d3d37667a8d7eb02054c6afdf9e2e1c', 'ATIVO', 'USUARIO', '2022-05-05 18:10:43'),
