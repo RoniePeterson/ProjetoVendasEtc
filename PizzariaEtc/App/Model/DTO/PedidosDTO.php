@@ -63,7 +63,7 @@ class PedidosDTO
 
   public function setValorTotal($total)
   {
-    $this->id = $total;
+    $this->total = $total;
   }
 
   public function setStatus($status)

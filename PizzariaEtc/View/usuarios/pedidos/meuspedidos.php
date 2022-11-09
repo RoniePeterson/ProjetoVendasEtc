@@ -3,11 +3,8 @@ session_start();
 require_once  "../../../App/Control/verificaLogadoControl.php";
 require_once "../../layouts/header.php";
 require_once  "../../layouts/menu.php";
-require_once  "../../../App/Model/DAO/PedidosDAO.php";
-$pedidosDAO = new PedidosDAO();
-$pedidos = $pedidosDAO->listarPedidosByUsuario($usuarioLogado['id']);
+require_once "../../../App/Control/listaPedidosControl.php";
 $qtd = 1;
-
 ?>
 <section class="container mt-3">
   <h1>Meus pedidos</h1>
@@ -32,12 +29,12 @@ $qtd = 1;
           foreach($pedidos as $pedido){ ?>
           <tr>
             <td><?=$qtd;?></td>
-            <td><?=$pedido['NUMERO'];?></td>
-            <td><?=$pedido['DATA'];?></td>
-            <td><?=$pedido['TOTAL'];?></td>
-            <td><?=$pedido['STATUS'];?></td>
+            <td><?=$pedido->getNumeroPedido();?></td>
+            <td><?=$pedido->getDataCadastro();?></td>
+            <td><?=$pedido->getValorTotal();?></td>
+            <td><?=$pedido->getStatus();?></td>
             <td style="width:5%;">
-              <a href="/View/usuarios/pedidos/detalhepedido.php?id=<?=$pedido['ID'];?>"  
+              <a href="/View/usuarios/pedidos/detalhepedido.php?id=<?=$pedido->getId();?>"  
                 class="btn btn-success btn-sm">Detalhes</a>
             </td>
           </tr>
