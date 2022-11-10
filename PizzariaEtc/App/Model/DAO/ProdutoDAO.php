@@ -6,13 +6,14 @@ class ProdutoDAO {
     public function cadastrarProduto(ProdutoDTO $produtoDTO){
         try{
             $con = Conexao::getInstance();
-            $sql = "INSERT INTO produto (descricao, valor_unitario, codigo, imagem) ";
+            $sql = "INSERT INTO produtos (nome, valor, quantidade, categoria, imagem) ";
             $sql .=" VALUES(?, ?, ?, ? )";
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(1, $produtoDTO->getDescricao());
+            $stmt->bindValue(1, $produtoDTO->getNome());
             $stmt->bindValue(2, $produtoDTO->getValorUnitario);
-            $stmt->bindValue(3, $produtoDTO->getCodigo());
-            $stmt->bindValue(4, $produtoDTO->getImagem());
+            $stmt->bindValue(3, $produtoDTO->getQuantidade());
+            $stmt->bindValue(4, $produtoDTO->getCategoria());
+            $stmt->bindValue(5, $produtoDTO->getImagem());
             
             return $stmt->execute();
             
@@ -24,17 +25,30 @@ class ProdutoDAO {
     }
     
     public function listarTodos(){
+        $produtos = array();
         try{
             $con = Conexao::getInstance();
-            $sql = "SELECT * from produto ORDER BY codigo";
+            $sql = "SELECT * from produtos ORDER BY categoria";
             $stmt = $con->prepare($sql);
             $stmt->execute();
-            $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $produtos;
+            $produtosFetch = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if($produtosFetch) {
+              foreach ($produtosFetch as $produto) {
+                $item = new ProdutoDTO();
+                $item->setId($produto['ID']);
+                $item->setNome($produto['NOME']);
+                $item->setQuantidade($produto['QUANTIDADE']);
+                $item->setValorUnitario($produto['VALOR']);
+                $item->setCategoria($produto['CATEGORIA']);
+                $item->setImagem($produto['IMAGEM']);
+              
+                $produtos[] = $item;
+              }
+            }
         }catch(PDOException $e){
             echo $e->getMessage();
         }
-        
+        return $produtos;        
     }
 
     public function excluirProdutoById($idproduto){

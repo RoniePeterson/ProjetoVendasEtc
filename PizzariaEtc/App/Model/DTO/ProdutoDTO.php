@@ -3,52 +3,73 @@
  * Essa classe representa o modelo da tabela.
  * DTO - Data Transfer Object
  */
-class ProdutoDTO {
-    private $idProduto;
-    private $descricao;
-    private $valorUnitario;
-    private $codigo;
-    private $imagem;
-    
-    public function getIdProduto() {
-        return $this->idProduto;
-    }
+class ProdutoDTO
+{
+  private $id;
+  private $nome;
+  private $valor;
+  private $quantidade;
+  private $categoria;
+  private $imagem;
 
-    public function getDescricao() {
-        return $this->descricao;
-    }
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    public function getValorUnitario() {
-        return $this->valorUnitario;
-    }
-    
-    public function getCodigo() {
-        return $this->codigo;
-    }
-    
-    public function getImagem() {
-        return $this->imagem;
-    }
-    
+  public function getNome()
+  {
+    return $this->nome;
+  }
 
-    public function setIdProduto($idProduto) {
-        $this->idProduto = $idProduto;
-    }
+  public function getValorUnitario()
+  {
+    return $this->valor;
+  }
 
-    public function setDescricao($descricao) {
-        $this->descricao = $descricao;
-    }
+  public function getQuantidade()
+  {
+    return $this->quantidade;
+  }
 
-    public function setValorUnitario($valorUnitario) {
-        $this->valorUnitario = $valorUnitario;
-    }
+  public function getCategoria()
+  {
+    return $this->categoria;
+  }
 
-    public function setCodigo($codigo) {
-        $this->codigo = $codigo;
-    }
+  public function getImagem()
+  {
+    return $this->imagem;
+  }
 
-    public function setImagem($imagem) {
-        $this->imagem = $imagem;
-    }
 
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function setNome($nome)
+  {
+    $this->nome = $nome;
+  }
+
+  public function setValorUnitario($valor)
+  {
+    $this->valor = $valor;
+  }
+
+  public function setQuantidade($quantidade)
+  {
+    $this->quantidade = $quantidade;
+  }
+
+  public function setCategoria($categoria)
+  {
+    $this->categoria = $categoria;
+  }
+
+  public function setImagem($imagem)
+  {
+    $this->imagem = $imagem;
+  }
 }
