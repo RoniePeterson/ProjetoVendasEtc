@@ -97,7 +97,7 @@ CREATE TABLE `produtos` (
   `VALOR` decimal(6,2) DEFAULT 0.00,
   `QUANTIDADE` int(11) DEFAULT 0,
   `CATEGORIA` enum('REFRIGERANTE','AGUA','CERVEJA','SUCO','PIZZA','ESFIRRA') DEFAULT NULL,
-  `IMAGEM` varchar(255) NOT NULL DEFAULT 'pizza-logo.png',
+  `IMAGEM` varchar(255) NOT NULL DEFAULT 'pizza-logo.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
