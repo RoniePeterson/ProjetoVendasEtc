@@ -5,14 +5,15 @@ def jogar():
     print("*********************************")
 
     palavra_secreta = "maça".upper()
-    letras_acertadas = ["_", "_", "_", "_"]
+    letras_acertadas = ["_" for letra in palavra_secreta]
 
-
+    enforcou = False
+    acertou = False
     erros = 0
-    print(len(palavra_secreta))
+    
     print(letras_acertadas)
-
-    while(True):
+    
+    while(not enforcou and not acertou):
 
         chute = input("Qual letra? ")
         chute = chute.strip().upper()
@@ -26,14 +27,12 @@ def jogar():
         else:
             erros += 1
 
-        if (erros == 6):
-            break
-        if ("_" not in letras_acertadas):
-            break
+        enforcou = erros ==6
+        acertou = "_" not in letras_acertadas
         print(letras_acertadas)
 
 
-    if("_" not in letras_acertadas):
+    if(acertou):
         print("Você ganhou!!")
     else:
         print("Você perdeu!!")
