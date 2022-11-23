@@ -105,7 +105,7 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`ID`, `NOME`, `VALOR`, `QUANTIDADE`, `CATEGORIA`) VALUES
-(1, 'Pizza Calabreza', '19.99', 0, 'PIZZA'),
+(1, 'Pizza Calabreza', '19.99', 0, 'PIZZA', 'calabresa.png'),
 (2, 'Pizza Portuguesa', '19.99', 0, 'PIZZA'),
 (3, 'Pizza Pepperoni', '19.99', 0, 'PIZZA'),
 (4, 'Pizza Banana', '22.33', 0, 'PIZZA'),
@@ -115,9 +115,9 @@ INSERT INTO `produtos` (`ID`, `NOME`, `VALOR`, `QUANTIDADE`, `CATEGORIA`) VALUES
 (8, 'Suco de laranja caixinha', '4.50', 100, 'SUCO'),
 (9, 'Suco de maça caixinha', '4.50', 55, 'SUCO'),
 (10, 'Suco de laranja 1L', '14.99', 30, 'SUCO'),
-(11, 'Coca Cola 350 ML', '5.00', 0, 'REFRIGERANTE'),
-(12, 'Guaraná Antártica Lata 350 ML', '5.00', 0, 'REFRIGERANTE'),
-(13, 'Pepsi Cola 350 ML', '5.00', 0, 'REFRIGERANTE'),
+(11, 'Coca Cola 350 ML', '5.00', 0, 'REFRIGERANTE', 'coca-cola.png'),
+(12, 'Guaraná Antártica Lata 350 ML', '5.00', 0, 'REFRIGERANTE', 'coca-cola.png'),
+(13, 'Pepsi Cola 350 ML', '5.00', 0, 'REFRIGERANTE', 'pepsi.jpg'),
 (14, 'Soda Limonada 350 ML', '5.00', 0, 'REFRIGERANTE'),
 (15, 'Esfirras queijo', '1.99', 0, 'ESFIRRA'),
 (16, 'Esfirras carne', '1.99', 0, 'ESFIRRA'),

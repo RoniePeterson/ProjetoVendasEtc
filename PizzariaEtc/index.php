@@ -30,9 +30,21 @@ $produtos = $produtosDAO->listarTodos();
   </section>
 
   <section>
-    <?php foreach ($produtos as $produto) { ?>
-      <?=$produto->getNome();?>
-    <?php } ?>
+    <div class="d-flex flex-wrap">
+      <?php foreach ($produtos as $produto) { ?>
+        <div class="card mt-2 me-3" style="width: 18rem;">
+          <img src="Assets/imagens/produtos/<?= $produto->getImagem(); ?>" alt=".." class="card-img-top" style="height: 13rem;">
+          <div class="card-body">
+            <div class="card-title">
+              <p><?= $produto->getNome(); ?></p>
+              <p>R$ <?= $produto->getValorUnitario(); ?></p>
+              <a href="" class="btn btn-sm btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+    </div>
+
   </section>
 
 
