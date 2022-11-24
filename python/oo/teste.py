@@ -12,3 +12,5 @@ def saca(conta, valor):
 
 def extrato(conta):
     print("Saldo {} do titular {}.".format(conta["saldo"], conta["titular"]))
+
+
